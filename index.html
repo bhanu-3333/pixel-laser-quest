@@ -58,29 +58,28 @@
       background-size: 20px 20px;
     }
 
-#player {
-  position: absolute;
-  width: 80px;      /* increased size */
-  height: 80px;     /* increased size */
-  background: url('assets/player.png') no-repeat center/contain;
-  image-rendering: pixelated;
-  filter: drop-shadow(0 0 8px rgba(100, 181, 246, 0.7));
-  z-index: 10;
-}
+    #player {
+      position: absolute;
+      width: 80px;      
+      height: 80px;     
+      background: url('assets/player.png') no-repeat center/contain;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 0 8px rgba(100, 181, 246, 0.7));
+      z-index: 10;
+    }
 
-.power-up {
-  position: absolute;
-  width: 60px;      /* increased size */
-  height: 60px;     /* increased size */
-  background: url('assets/power1.png') no-repeat center/contain;
-  animation: powerUpFloat 2s ease-in-out infinite;
-  z-index: 8;
-}
-  @keyframes powerUpFloat {
+    .power-up {
+      position: absolute;
+      width: 60px;      
+      height: 60px;     
+      background: url('assets/power2.png') no-repeat center/contain; /* Updated */
+      animation: powerUpFloat 2s ease-in-out infinite;
+      z-index: 8;
+    }
+    @keyframes powerUpFloat {
       0%, 100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-10px) scale(1.1); }
     }
-
 
     .laser {
       position: absolute;
@@ -92,8 +91,6 @@
     }
     @keyframes laserPulse { 0% { filter: brightness(1); } 100% { filter: brightness(1.2); } }
 
-  
-  
     #hud {
       display: flex;
       justify-content: center;
@@ -196,7 +193,6 @@
       osc.start(); osc.stop(audioContext.currentTime + duration);
     }
 
-    
     function setPlayerPosition() {
       player.style.left = playerX + 'px';
       player.style.top = playerY + 'px';
@@ -221,7 +217,7 @@
       setPlayerPosition();
       startBtn.style.display = 'none'; gameOverScreen.style.display = 'none';
       playSound(500, 0.5);
-      bgMusic.play().catch(()=>{}); // start background music
+      bgMusic.play().catch(()=>{});
 
       gameInterval = setInterval(() => { time++; timeDisplay.textContent = `TIME: ${time}s`; }, 1000);
       laserInterval = setInterval(createLaser, 2000);
