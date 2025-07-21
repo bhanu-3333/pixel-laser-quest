@@ -123,6 +123,7 @@ function startGame() {
   powerUpInterval = setInterval(spawnPowerUp, 3000);
 }
 
+
 // End the game
 function endGame() {
   running = false;
