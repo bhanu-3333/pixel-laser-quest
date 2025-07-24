@@ -248,6 +248,8 @@
       checkLaserCollision(laser);
     }
 
+    
+
     function checkLaserCollision(laser) {
       const check = setInterval(() => {
         if (!running || !laser.parentNode) { clearInterval(check); return; }
